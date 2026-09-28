@@ -1,0 +1,232 @@
+/* ================================
+   ANIMAL DETAILS PAGE
+================================ */
+
+.animal-details-page {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.animal-details {
+  padding: 45px 8% 90px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #666;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  color: #e85d04;
+}
+
+
+/* ================================
+   DETAILS CONTAINER
+================================ */
+
+.details-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+
+/* ================================
+   IMAGE
+================================ */
+
+.details-image {
+  height: 500px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #fff7f0;
+}
+
+.details-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ================================
+   CONTENT
+================================ */
+
+.details-content {
+  padding-top: 10px;
+}
+
+.details-status {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 20px;
+  background: #eaf7ed;
+  color: #27833b;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.details-content h1 {
+  margin: 18px 0 8px;
+  font-size: 52px;
+  line-height: 1.1;
+  color: #222;
+}
+
+.details-location {
+  margin-bottom: 30px;
+  color: #666;
+  font-size: 16px;
+}
+
+
+/* ================================
+   PET INFO
+================================ */
+
+.details-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.details-info div {
+  padding: 18px;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.details-info span {
+  display: block;
+  margin-bottom: 5px;
+  color: #888;
+  font-size: 13px;
+}
+
+.details-info strong {
+  color: #222;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+
+/* ================================
+   DESCRIPTION
+================================ */
+
+.details-description {
+  margin-bottom: 30px;
+}
+
+.details-description h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #222;
+}
+
+.details-description p {
+  color: #666;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+
+/* ================================
+   ADOPT BUTTON
+================================ */
+
+.adopt-btn,
+.back-btn {
+  display: inline-block;
+  padding: 14px 25px;
+  border-radius: 9px;
+  background: #e85d04;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.adopt-btn:hover,
+.back-btn:hover {
+  background: #d94f00;
+  transform: translateY(-2px);
+}
+
+
+/* ================================
+   LOADING / ERROR
+================================ */
+
+.details-message {
+  padding: 100px 20px;
+  text-align: center;
+  color: #666;
+}
+
+.details-message h2 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.details-message p {
+  margin-bottom: 25px;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 800px) {
+
+  .animal-details {
+    padding: 35px 20px 70px;
+  }
+
+  .details-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .details-image {
+    height: 400px;
+  }
+
+  .details-content h1 {
+    font-size: 42px;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  .details-image {
+    height: 300px;
+  }
+
+  .details-content h1 {
+    font-size: 36px;
+  }
+
+  .details-info {
+    grid-template-columns: 1fr;
+  }
+
+  .adopt-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,205 @@
+/* ================================
+   ANIMALS PAGE
+================================ */
+
+.animals-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+
+/* ================================
+   PAGE HEADER
+================================ */
+
+.animals-header {
+  padding: 75px 8%;
+  background: #fff7f0;
+}
+
+.animals-header > div {
+  max-width: 700px;
+}
+
+.animals-header span {
+  color: #e85d04;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.animals-header h1 {
+  margin: 12px 0 15px;
+  font-size: 52px;
+  line-height: 1.1;
+  color: #222;
+}
+
+.animals-header p {
+  max-width: 600px;
+  color: #666;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
+/* ================================
+   SEARCH & FILTERS
+================================ */
+
+.animal-search-section {
+  padding: 30px 8%;
+  background: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.animal-search {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.animal-search input,
+.animal-search select {
+  width: 100%;
+  height: 48px;
+  padding: 0 15px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: #333;
+  font-size: 15px;
+}
+
+.animal-search input:focus,
+.animal-search select:focus {
+  border-color: #e85d04;
+}
+
+.animal-search button {
+  height: 48px;
+  padding: 0 25px;
+  border: none;
+  border-radius: 8px;
+  background: #e85d04;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.animal-search button:hover {
+  background: #d94f00;
+}
+
+
+/* ================================
+   ANIMAL LIST
+================================ */
+
+.animals-list {
+  padding: 70px 8%;
+}
+
+.animals-list-header {
+  max-width: 1100px;
+  margin: 0 auto 35px;
+}
+
+.animals-list-header h2 {
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.animals-list-header p {
+  color: #777;
+  font-size: 16px;
+}
+
+
+/* ================================
+   ANIMAL GRID
+================================ */
+
+.animal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+  .animal-search {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .animal-search input {
+    grid-column: span 2;
+  }
+
+  .animal-search button {
+    width: 100%;
+  }
+
+  .animal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .animals-header {
+    padding: 55px 20px;
+  }
+
+  .animals-header h1 {
+    font-size: 40px;
+  }
+
+  .animals-header p {
+    font-size: 16px;
+  }
+
+  .animal-search-section {
+    padding: 20px;
+  }
+
+  .animal-search {
+    grid-template-columns: 1fr;
+  }
+
+  .animal-search input {
+    grid-column: auto;
+  }
+
+  .animals-list {
+    padding: 55px 20px;
+  }
+
+  .animals-list-header h2 {
+    font-size: 28px;
+  }
+
+  .animal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pet-card-link {
+  text-decoration: none;
+  color: inherit;
+}

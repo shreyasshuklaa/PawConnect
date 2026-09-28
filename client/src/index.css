@@ -1,0 +1,62 @@
+/* ================================
+   GLOBAL RESET
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background: #ffffff;
+}
+
+/* Remove default heading spacing */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+/* Paragraph */
+p {
+  margin: 0;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Links */
+a {
+  color: inherit;
+}
+
+/* Form elements */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* ================================
+   REACT ROOT
+================================ */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
