@@ -1,0 +1,118 @@
+.adoption-page {
+  min-height: 100vh;
+  background: #fffaf5;
+}
+
+.adoption-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.back-link {
+  color: #555;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.adoption-card {
+  max-width: 750px;
+  margin: 50px auto 0;
+  background: #fff;
+  padding: 45px;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.adoption-header span {
+  color: #e85d04;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.adoption-header h1 {
+  margin: 12px 0;
+  font-size: 48px;
+  color: #222;
+}
+
+.adoption-header p {
+  color: #666;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin-top: 35px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group textarea {
+  width: 100%;
+  min-height: 180px;
+  padding: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  resize: vertical;
+  outline: none;
+}
+
+.form-group textarea:focus {
+  border-color: #e85d04;
+}
+
+.submit-adoption-btn {
+  margin-top: 22px;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 8px;
+  background: #e85d04;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-adoption-btn:hover {
+  background: #d94f00;
+}
+
+.submit-adoption-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.success-message {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #eaf8ee;
+  color: #237a3b;
+}
+
+.error-message {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff0f0;
+  color: #c62828;
+}
+
+@media (max-width: 600px) {
+  .adoption-card {
+    padding: 25px 20px;
+  }
+
+  .adoption-header h1 {
+    font-size: 36px;
+  }
+}

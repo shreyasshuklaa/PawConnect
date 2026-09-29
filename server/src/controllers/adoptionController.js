@@ -1,5 +1,6 @@
 const AdoptionApplication = require("../models/AdoptionApplication");
 const Animal = require("../models/Animal");
+const Organization = require("../models/Organization");
 
 const createAdoptionApplication = async (req, res) => {
   try {
@@ -63,6 +64,151 @@ const createAdoptionApplication = async (req, res) => {
   }
 };
 
+const getOrganizationApplications = async (req, res) => {
+  try {
+    const organization = await Organization.findOne({
+      owner: req.user.userId,
+    });
+
+    if (!organization) {
+      return res.status(404).json({
+        message: "Organization not found",
+      });
+    }
+
+    const applications = await AdoptionApplication.find({
+      organization: organization._id,
+    })
+      .populate("applicant", "name email")
+      .populate("animal", "name species breed age gender")
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      message: "Adoption applications fetched successfully",
+      count: applications.length,
+      applications,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server error",
+      error: error.message,
+    });
+  }
+};
+
+const approveAdoptionApplication = async (req, res) => {
+  try {
+    const application = await AdoptionApplication.findById(req.params.id);
+
+    if (!application) {
+      return res.status(404).json({
+        message: "Adoption application not found",
+      });
+    }
+
+    // Find shelter organization
+    const organization = await Organization.findOne({
+      _id: application.organization,
+      owner: req.user.userId,
+    });
+
+    if (!organization) {
+      return res.status(403).json({
+        message: "You can only manage your own applications",
+      });
+    }
+
+    // Check application status
+    if (application.status !== "pending") {
+      return res.status(400).json({
+        message: "Only pending applications can be approved",
+      });
+    }
+
+    // Find animal
+    const animal = await Animal.findById(application.animal);
+
+    if (!animal) {
+      return res.status(404).json({
+        message: "Animal not found",
+      });
+    }
+
+    // Update application
+    application.status = "approved";
+    application.reviewedAt = new Date();
+
+    await application.save();
+
+    // Update animal
+    animal.adoptionStatus = "adopted";
+
+    await animal.save();
+
+    res.status(200).json({
+      message: "Adoption application approved successfully",
+      application,
+      animal,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server error",
+      error: error.message,
+    });
+  }
+};
+
+
+const rejectAdoptionApplication = async (req, res) => {
+  try {
+    const application = await AdoptionApplication.findById(req.params.id);
+
+    if (!application) {
+      return res.status(404).json({
+        message: "Adoption application not found",
+      });
+    }
+
+    // Find shelter organization
+    const organization = await Organization.findOne({
+      _id: application.organization,
+      owner: req.user.userId,
+    });
+
+    if (!organization) {
+      return res.status(403).json({
+        message: "You can only manage your own applications",
+      });
+    }
+
+    // Check application status
+    if (application.status !== "pending") {
+      return res.status(400).json({
+        message: "Only pending applications can be rejected",
+      });
+    }
+
+    // Update application
+    application.status = "rejected";
+    application.reviewedAt = new Date();
+
+    await application.save();
+
+    res.status(200).json({
+      message: "Adoption application rejected successfully",
+      application,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createAdoptionApplication,
+  getOrganizationApplications,
+  approveAdoptionApplication,
+  rejectAdoptionApplication,
 };
