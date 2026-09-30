@@ -206,9 +206,32 @@ const rejectAdoptionApplication = async (req, res) => {
   }
 };
 
+const getMyApplications = async (req, res) => {
+  try {
+    const applications = await AdoptionApplication.find({
+      applicant: req.user.userId,
+    })
+      .populate("animal", "name species breed age gender")
+      .populate("organization", "name email")
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      message: "Your adoption applications fetched successfully",
+      count: applications.length,
+      applications,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createAdoptionApplication,
   getOrganizationApplications,
   approveAdoptionApplication,
   rejectAdoptionApplication,
+  getMyApplications,
 };

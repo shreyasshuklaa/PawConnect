@@ -11,8 +11,10 @@ function Navbar() {
       <div className="navbar-links">
         <Link to="/">Home</Link>
         <Link to="/animals">Find a Pet</Link>
+        <Link to="/adopter/applications">My Applications</Link>
         <Link to="/login">Login</Link>
         <Link to="/register" className="register-btn">
+
           Register
         </Link>
       </div>

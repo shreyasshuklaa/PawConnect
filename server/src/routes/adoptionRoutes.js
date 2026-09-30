@@ -5,6 +5,7 @@ const {
   getOrganizationApplications,
   approveAdoptionApplication,
   rejectAdoptionApplication,
+  getMyApplications,
 } = require("../controllers/adoptionController");
 
 const protect = require("../middleware/authMiddleware");
@@ -42,6 +43,13 @@ router.patch(
   protect,
   authorizeRoles("shelter"),
   rejectAdoptionApplication
+);
+
+router.get(
+  "/my",
+  protect,
+  authorizeRoles("adopter"),
+  getMyApplications
 );
 
 

@@ -1,0 +1,179 @@
+.adopter-applications-page {
+  min-height: 100vh;
+  background: #f7f8fa;
+}
+
+.adopter-applications-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 24px 70px;
+}
+
+.adopter-applications-header {
+  margin-bottom: 35px;
+}
+
+.adopter-applications-header span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f05a00;
+  letter-spacing: 1px;
+}
+
+.adopter-applications-header h1 {
+  margin: 8px 0 8px;
+  font-size: 42px;
+  color: #172033;
+}
+
+.adopter-applications-header p {
+  margin: 0;
+  font-size: 17px;
+  color: #64748b;
+}
+
+/* Applications List */
+
+.adopter-applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.adopter-application-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px 34px;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+/* Top Section */
+
+.application-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.application-card-top h2 {
+  margin: 0 0 7px;
+  font-size: 27px;
+  color: #172033;
+}
+
+.animal-info {
+  margin: 0;
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* Status */
+
+.adopter-application-status {
+  padding: 8px 17px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.adopter-application-status.approved {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.adopter-application-status.rejected {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.adopter-application-status.pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+/* Organization */
+
+.organization-info {
+  margin-top: 25px;
+}
+
+.organization-info h3,
+.adopter-application-message h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  color: #172033;
+}
+
+.organization-info p {
+  margin: 6px 0;
+  color: #475569;
+  font-size: 16px;
+}
+
+.organization-info strong {
+  color: #172033;
+}
+
+/* Message */
+
+.adopter-application-message {
+  margin-top: 25px;
+}
+
+.adopter-application-message p {
+  margin: 0;
+  padding: 16px 18px;
+  background: #f8fafc;
+  border-radius: 10px;
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Loading / Empty / Error */
+
+.applications-message,
+.applications-error {
+  padding: 25px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  text-align: center;
+}
+
+.applications-error {
+  color: #dc2626;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .adopter-applications-container {
+    padding: 35px 16px 50px;
+  }
+
+  .adopter-applications-header h1 {
+    font-size: 32px;
+  }
+
+  .adopter-application-card {
+    padding: 22px;
+  }
+
+  .application-card-top {
+    flex-direction: column;
+  }
+
+  .adopter-application-status {
+    align-self: flex-start;
+  }
+}
