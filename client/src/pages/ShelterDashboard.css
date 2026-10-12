@@ -1,0 +1,263 @@
+.shelter-dashboard-page {
+  min-height: 100vh;
+  background: #f7f8fa;
+}
+
+.shelter-dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 55px 30px 80px;
+}
+
+.shelter-dashboard-header {
+  margin-bottom: 40px;
+}
+
+.shelter-dashboard-header span {
+  color: #f05a00;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.shelter-dashboard-header h1 {
+  margin: 12px 0;
+  color: #17233c;
+  font-size: 48px;
+}
+
+.shelter-dashboard-header p {
+  color: #65738b;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+/* Organization registration */
+
+.organization-registration,
+.organization-status-card {
+  max-width: 850px;
+  padding: 35px;
+  margin-bottom: 35px;
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.organization-registration h2,
+.organization-status-card h2 {
+  margin-bottom: 12px;
+  color: #17233c;
+  font-size: 28px;
+}
+
+.organization-registration > p {
+  margin-bottom: 28px;
+  color: #65738b;
+  line-height: 1.6;
+}
+
+.organization-registration form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.organization-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.organization-form-group label {
+  color: #263449;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.organization-form-group input,
+.organization-form-group textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #d5dce6;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #263449;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.organization-form-group input {
+  min-height: 48px;
+}
+
+.organization-form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.organization-form-group input:focus,
+.organization-form-group textarea:focus {
+  border-color: #f05a00;
+  box-shadow: 0 0 0 3px rgba(240, 90, 0, 0.1);
+}
+
+.organization-registration form > .organization-form-group:last-of-type {
+  grid-column: 1 / -1;
+}
+
+.organization-registration button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 9px;
+  background: #f05a00;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.organization-registration button:hover {
+  background: #d94f00;
+  transform: translateY(-1px);
+}
+
+.organization-registration button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Status messages */
+
+.organization-error,
+.organization-success {
+  max-width: 850px;
+  margin-bottom: 22px;
+  padding: 15px 18px;
+  border-radius: 10px;
+}
+
+.organization-error {
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+.organization-success {
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+/* Organization status */
+
+.organization-status-card p {
+  margin-top: 15px;
+  color: #526176;
+  line-height: 1.6;
+}
+
+.verification-status {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.verification-status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.verification-status.approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.verification-status.rejected {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Dashboard cards */
+
+.shelter-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.dashboard-card {
+  padding: 30px;
+  border: 1px solid #e2e6ed;
+  border-radius: 16px;
+  background: white;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-icon {
+  margin-bottom: 18px;
+  font-size: 36px;
+}
+
+.dashboard-card h2 {
+  margin-bottom: 12px;
+  color: #17233c;
+  font-size: 23px;
+}
+
+.dashboard-card p {
+  color: #65738b;
+  line-height: 1.7;
+}
+
+/* Responsive */
+
+@media (max-width: 650px) {
+  .shelter-dashboard-container {
+    padding: 35px 18px 55px;
+  }
+
+  .shelter-dashboard-header h1 {
+    font-size: 35px;
+  }
+
+  .shelter-dashboard-header p {
+    font-size: 16px;
+  }
+
+  .organization-registration,
+  .organization-status-card {
+    padding: 22px;
+  }
+
+  .organization-registration form,
+  .shelter-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .organization-registration form > .organization-form-group:last-of-type,
+  .organization-registration button {
+    grid-column: auto;
+  }
+
+  .organization-registration button {
+    width: 100%;
+  }
+}

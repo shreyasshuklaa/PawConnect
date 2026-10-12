@@ -70,10 +70,32 @@ if (organization.verificationStatus !== "approved") {
 
 const getAnimals = async (req, res) => {
   try {
-    const { species, gender, location, adoptionStatus, breed } = req.query;
+    const {
+      species,
+      gender,
+      location,
+      adoptionStatus,
+      breed,
+    } = req.query;
 
     const filter = {};
 
+    // Shelter should only see animals belonging to its organization
+    if (req.user?.role === "shelter") {
+      const organization = await Organization.findOne({
+        owner: req.user.userId,
+      });
+
+      if (!organization) {
+        return res.status(404).json({
+          message: "Organization not found",
+        });
+      }
+
+      filter.organization = organization._id;
+    }
+
+    // Filters
     if (species) {
       filter.species = species;
     }
@@ -81,32 +103,38 @@ const getAnimals = async (req, res) => {
     if (gender) {
       filter.gender = gender;
     }
-if (location || breed) {
-  const searchTerm = location || breed;
 
-  filter.$or = [
-    {
-      location: { $regex: searchTerm, $options: "i" },
-    },
-    {
-      breed: { $regex: searchTerm, $options: "i" },
-    },
-  ];
-}
+    if (location || breed) {
+      const searchTerm = location || breed;
+
+      filter.$or = [
+        {
+          location: {
+            $regex: searchTerm,
+            $options: "i",
+          },
+        },
+        {
+          breed: {
+            $regex: searchTerm,
+            $options: "i",
+          },
+        },
+      ];
+    }
 
     if (adoptionStatus) {
       filter.adoptionStatus = adoptionStatus;
     }
 
-
+    // Pagination
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
-
     const skip = (page - 1) * limit;
 
     const animals = await Animal.find(filter)
-    .skip(skip)
-    .limit(limit);
+      .skip(skip)
+      .limit(limit);
 
     res.status(200).json({
       message: "Animals fetched successfully",
@@ -122,6 +150,7 @@ if (location || breed) {
     });
   }
 };
+
 
 const getAnimalById = async (req, res) => {
   try {
@@ -245,10 +274,40 @@ const deleteAnimal = async (req, res) => {
   }
 };
 
+const getMyAnimals = async (req, res) => {
+  try {
+    const organization = await Organization.findOne({
+      owner: req.user.userId,
+    });
+
+    if (!organization) {
+      return res.status(404).json({
+        message: "Organization not found",
+      });
+    }
+
+    const animals = await Animal.find({
+      organization: organization._id,
+    }).sort({ createdAt: -1 });
+
+    res.status(200).json({
+      message: "Your animals fetched successfully",
+      count: animals.length,
+      animals,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createAnimal,
   getAnimals,
   getAnimalById,
   updateAnimal,
-  deleteAnimal
+  deleteAnimal,
+  getMyAnimals
 };

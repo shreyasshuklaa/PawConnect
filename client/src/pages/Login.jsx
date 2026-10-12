@@ -44,7 +44,17 @@ function Login() {
         localStorage.setItem("user", JSON.stringify(data.user));
       }
 
-      navigate("/animals");
+      if (data.user.role === "admin") {
+          navigate("/admin/dashboard");
+      } else if (data.user.role === "shelter") {
+          navigate("/shelter/dashboard");
+      } else if (data.user.role === "adopter") {
+            navigate("/animals");
+      } else {
+          navigate("/");
+      }
+
+
     } catch (error) {
       setError(error.message);
     } finally {

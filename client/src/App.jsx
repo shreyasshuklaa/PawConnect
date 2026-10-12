@@ -8,6 +8,10 @@ import AnimalDetails from "./pages/AnimalDetails";
 import AdoptionForm from "./pages/AdoptionForm";
 import ShelterApplications from "./pages/ShelterApplications";
 import AdopterApplications from "./pages/AdopterApplications";
+import ShelterDashboard from "./pages/ShelterDashboard";
+import ShelterAnimals from "./pages/ShelterAnimals";
+import AdminDashboard from "./pages/AdminDashboard";
+
 
 function App() {
   return (
@@ -21,6 +25,9 @@ function App() {
         <Route path="/adopt/:id" element={<AdoptionForm />} />
         <Route path="/shelter/applications" element={<ShelterApplications />} />
         <Route path="/adopter/applications" element={<AdopterApplications />} />
+        <Route path="/shelter/dashboard" element={<ShelterDashboard />} /> 
+        <Route path="/shelter/animals" element={<ShelterAnimals />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
     </BrowserRouter>
   );

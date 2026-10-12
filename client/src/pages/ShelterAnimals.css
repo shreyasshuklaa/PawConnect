@@ -1,0 +1,276 @@
+.shelter-animals-page {
+  min-height: 100vh;
+  background: #f7f8fa;
+}
+
+.shelter-animals-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 24px 70px;
+}
+
+/* Header */
+
+.shelter-animals-header {
+  margin-bottom: 35px;
+}
+
+.shelter-animals-header span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f05a00;
+  letter-spacing: 1px;
+}
+
+.shelter-animals-header h1 {
+  margin: 8px 0;
+  font-size: 42px;
+  color: #172033;
+}
+
+.shelter-animals-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 17px;
+}
+
+/* Add Animal */
+
+.add-animal-section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 35px;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+.add-animal-section h2 {
+  margin: 0 0 25px;
+  font-size: 24px;
+  color: #172033;
+}
+
+.add-animal-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #172033;
+  background: #ffffff;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #f05a00;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.add-animal-btn {
+  grid-column: 1 / -1;
+  width: fit-content;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 9px;
+  background: #f05a00;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-animal-btn:hover {
+  opacity: 0.9;
+}
+
+.add-animal-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Messages */
+
+.animals-success,
+.animals-error,
+.animals-message {
+  padding: 16px 18px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.animals-success {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.animals-error {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.animals-message {
+  background: #ffffff;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+/* Animals Section */
+
+.animals-section {
+  margin-top: 35px;
+}
+
+.animals-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.animals-section-header h2 {
+  margin: 0;
+  font-size: 27px;
+  color: #172033;
+}
+
+.animals-section-header span {
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Animal Cards */
+
+.shelter-animals-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.shelter-animal-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+.animal-card-content h2 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  color: #172033;
+}
+
+.animal-card-content p {
+  margin: 7px 0;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.animal-card-content strong {
+  color: #334155;
+}
+
+.animal-description {
+  margin-top: 15px !important;
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+  line-height: 1.6;
+}
+
+/* Status */
+
+.animal-status {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.animal-status.available {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.animal-status.pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.animal-status.adopted {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+/* Responsive */
+
+@media (max-width: 750px) {
+  .shelter-animals-container {
+    padding: 35px 16px 50px;
+  }
+
+  .shelter-animals-header h1 {
+    font-size: 32px;
+  }
+
+  .add-animal-form {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width,
+  .add-animal-btn {
+    grid-column: auto;
+  }
+
+  .shelter-animals-list {
+    grid-template-columns: 1fr;
+  }
+
+  .animals-section-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

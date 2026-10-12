@@ -1,0 +1,141 @@
+.register-page {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background: #f7f8fa;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.register-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #f05a00;
+}
+
+.register-card h1 {
+  margin: 10px 0 8px;
+  font-size: 34px;
+  color: #172033;
+}
+
+.register-description {
+  margin: 0 0 28px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.register-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.register-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.register-form-group input,
+.register-form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  font-size: 15px;
+  color: #172033;
+  background: #ffffff;
+  outline: none;
+}
+
+.register-form-group input:focus,
+.register-form-group select:focus {
+  border-color: #f05a00;
+}
+
+.register-submit-btn {
+  width: 100%;
+  padding: 13px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 9px;
+  background: #f05a00;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-submit-btn:hover {
+  opacity: 0.9;
+}
+
+.register-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.register-error {
+  margin-bottom: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  font-size: 14px;
+}
+
+.register-success {
+  margin-bottom: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+  font-size: 14px;
+}
+
+.register-footer {
+  margin: 24px 0 0;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.register-footer a {
+  color: #f05a00;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .register-page {
+    padding: 30px 16px;
+  }
+
+  .register-card {
+    padding: 28px 22px;
+  }
+
+  .register-card h1 {
+    font-size: 28px;
+  }
+}
