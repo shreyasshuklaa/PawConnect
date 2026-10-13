@@ -1,179 +1,326 @@
+/* =========================
+   Adopter Applications Page
+========================= */
+
 .adopter-applications-page {
   min-height: 100vh;
   background: #f7f8fa;
 }
 
 .adopter-applications-container {
-  max-width: 1100px;
+  width: 100%;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 50px 24px 70px;
+  padding: 36px 28px 72px;
+  box-sizing: border-box;
 }
 
+/* =========================
+   Back Button
+========================= */
+
+.adopter-applications-container > .back-button {
+  margin-bottom: 30px;
+}
+
+/* =========================
+   Page Header
+========================= */
+
 .adopter-applications-header {
-  margin-bottom: 35px;
+  margin-bottom: 36px;
 }
 
 .adopter-applications-header span {
-  font-size: 14px;
-  font-weight: 700;
-  color: #f05a00;
-  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #d94f00;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .adopter-applications-header h1 {
-  margin: 8px 0 8px;
-  font-size: 42px;
+  margin: 0 0 12px;
   color: #172033;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -1.2px;
 }
 
 .adopter-applications-header p {
+  max-width: 620px;
   margin: 0;
-  font-size: 17px;
   color: #64748b;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
-/* Applications List */
+/* =========================
+   Applications List
+========================= */
 
 .adopter-applications-list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
 }
 
 .adopter-application-card {
+  padding: 30px 32px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 30px 34px;
-  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.04);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
-/* Top Section */
+.adopter-application-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+}
+
+/* =========================
+   Application Card Header
+========================= */
 
 .application-card-top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 20px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid #e5e7eb;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e8edf3;
 }
 
 .application-card-top h2 {
-  margin: 0 0 7px;
-  font-size: 27px;
+  margin: 0 0 8px;
   color: #172033;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .animal-info {
   margin: 0;
   color: #64748b;
-  font-size: 16px;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
-/* Status */
+/* =========================
+   Application Status
+========================= */
 
 .adopter-application-status {
-  padding: 8px 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 15px;
   border-radius: 999px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: capitalize;
   white-space: nowrap;
 }
 
+.adopter-application-status.pending {
+  color: #92400e;
+  background: #fef3c7;
+}
+
 .adopter-application-status.approved {
+  color: #166534;
   background: #dcfce7;
-  color: #15803d;
 }
 
 .adopter-application-status.rejected {
+  color: #991b1b;
   background: #fee2e2;
-  color: #dc2626;
 }
 
-.adopter-application-status.pending {
-  background: #fef3c7;
-  color: #b45309;
+.adopter-application-status.cancelled {
+  color: #475569;
+  background: #e2e8f0;
 }
 
-/* Organization */
+/* =========================
+   Organization Information
+========================= */
 
 .organization-info {
-  margin-top: 25px;
+  margin-top: 26px;
 }
 
 .organization-info h3,
 .adopter-application-message h3 {
-  margin: 0 0 12px;
-  font-size: 18px;
+  margin: 0 0 13px;
   color: #172033;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .organization-info p {
-  margin: 6px 0;
-  color: #475569;
-  font-size: 16px;
+  margin: 8px 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .organization-info strong {
-  color: #172033;
+  color: #334155;
+  font-weight: 600;
 }
 
-/* Message */
+/* =========================
+   Adopter Message
+========================= */
 
 .adopter-application-message {
-  margin-top: 25px;
+  margin-top: 27px;
 }
 
 .adopter-application-message p {
   margin: 0;
-  padding: 16px 18px;
-  background: #f8fafc;
-  border-radius: 10px;
+  padding: 17px 19px;
   color: #475569;
-  font-size: 16px;
-  line-height: 1.6;
+  background: #f8fafc;
+  border: 1px solid #edf1f5;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
 }
 
-/* Loading / Empty / Error */
+/* =========================
+   Loading / Empty / Error
+========================= */
 
 .applications-message,
 .applications-error {
-  padding: 25px;
-  border-radius: 12px;
+  padding: 28px 24px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  color: #475569;
+  border-radius: 14px;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.7;
   text-align: center;
 }
 
 .applications-error {
-  color: #dc2626;
+  color: #b91c1c;
   background: #fef2f2;
   border-color: #fecaca;
 }
 
-/* Responsive */
+/* =========================
+   Tablet
+========================= */
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .adopter-applications-container {
-    padding: 35px 16px 50px;
+    padding: 30px 22px 56px;
+  }
+
+  .adopter-applications-container > .back-button {
+    margin-bottom: 26px;
+  }
+
+  .adopter-applications-header {
+    margin-bottom: 28px;
+  }
+
+  .adopter-application-card {
+    padding: 25px;
+  }
+
+  .application-card-top h2 {
+    font-size: 24px;
+  }
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 480px) {
+  .adopter-applications-container {
+    padding: 24px 16px 42px;
+  }
+
+  .adopter-applications-container > .back-button {
+    margin-bottom: 24px;
+  }
+
+  .adopter-applications-header {
+    margin-bottom: 24px;
+  }
+
+  .adopter-applications-header span {
+    font-size: 11px;
+    letter-spacing: 1.2px;
   }
 
   .adopter-applications-header h1 {
     font-size: 32px;
+    letter-spacing: -0.7px;
+  }
+
+  .adopter-applications-header p {
+    font-size: 14px;
+  }
+
+  .adopter-applications-list {
+    gap: 16px;
   }
 
   .adopter-application-card {
-    padding: 22px;
+    padding: 20px 18px;
+    border-radius: 14px;
   }
 
   .application-card-top {
     flex-direction: column;
+    gap: 15px;
+    padding-bottom: 19px;
+  }
+
+  .application-card-top h2 {
+    font-size: 23px;
+  }
+
+  .animal-info {
+    font-size: 14px;
   }
 
   .adopter-application-status {
     align-self: flex-start;
+    padding: 7px 13px;
+    font-size: 12px;
+  }
+
+  .organization-info,
+  .adopter-application-message {
+    margin-top: 22px;
+  }
+
+  .organization-info h3,
+  .adopter-application-message h3 {
+    font-size: 16px;
+  }
+
+  .organization-info p,
+  .adopter-application-message p {
+    font-size: 14px;
+  }
+
+  .adopter-application-message p {
+    padding: 14px;
   }
 }

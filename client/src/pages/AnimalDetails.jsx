@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import BackButton from "../components/BackButton";
 import "./AnimalDetails.css";
 
 function AnimalDetails() {
@@ -28,7 +29,6 @@ function AnimalDetails() {
       }
 
       const data = await response.json();
-
       setAnimal(data.animal);
     } catch (error) {
       setError("Unable to load pet details.");
@@ -41,7 +41,10 @@ function AnimalDetails() {
     return (
       <div className="animal-details-page">
         <Navbar />
-        <p className="details-message">Loading pet details...</p>
+        <main className="animal-details">
+          <BackButton fallback="/animals" />
+          <p className="details-message">Loading pet details...</p>
+        </main>
       </div>
     );
   }
@@ -51,31 +54,26 @@ function AnimalDetails() {
       <div className="animal-details-page">
         <Navbar />
 
-        <div className="details-message">
-          <h2>Pet Not Found</h2>
-          <p>{error}</p>
+        <main className="animal-details">
+          <BackButton fallback="/animals" />
 
-          <Link to="/animals" className="back-btn">
-            ← Back to Pets
-          </Link>
-        </div>
+          <div className="details-message">
+            <h2>Pet Not Found</h2>
+            <p>{error || "This pet could not be found."}</p>
+          </div>
+        </main>
       </div>
     );
   }
 
   return (
     <div className="animal-details-page">
-
       <Navbar />
 
       <main className="animal-details">
-
-        <Link to="/animals" className="back-link">
-          ← Back to Pets
-        </Link>
+        <BackButton fallback="/animals" />
 
         <div className="details-container">
-
           {/* Pet Image */}
           <div className="details-image">
             <img
@@ -87,10 +85,8 @@ function AnimalDetails() {
             />
           </div>
 
-
           {/* Pet Information */}
           <div className="details-content">
-
             <span className="details-status">
               {animal.adoptionStatus}
             </span>
@@ -102,7 +98,6 @@ function AnimalDetails() {
             </p>
 
             <div className="details-info">
-
               <div>
                 <span>Species</span>
                 <strong>{animal.species}</strong>
@@ -122,7 +117,6 @@ function AnimalDetails() {
                 <span>Gender</span>
                 <strong>{animal.gender}</strong>
               </div>
-
             </div>
 
             <div className="details-description">
@@ -140,13 +134,9 @@ function AnimalDetails() {
             >
               Apply for Adoption →
             </Link>
-
           </div>
-
         </div>
-
       </main>
-
     </div>
   );
 }

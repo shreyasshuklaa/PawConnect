@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import BackButton from "../components/BackButton";
 import "./AdopterApplications.css";
 
 function AdopterApplications() {
@@ -53,6 +54,8 @@ function AdopterApplications() {
       <Navbar />
 
       <main className="adopter-applications-container">
+        <BackButton fallback="/animals" />
+
         <div className="adopter-applications-header">
           <span>ADOPTER DASHBOARD</span>
 

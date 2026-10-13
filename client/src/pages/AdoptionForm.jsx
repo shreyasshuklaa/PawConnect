@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import BackButton from "../components/BackButton";
 import "./AdoptionForm.css";
 
 function AdoptionForm() {
@@ -64,17 +65,12 @@ function AdoptionForm() {
 
   return (
     <div className="adoption-page">
-
       <Navbar />
 
       <main className="adoption-container">
-
-        <Link to={`/animals/${id}`} className="back-link">
-          ← Back to Pet
-        </Link>
+        <BackButton fallback={`/animals/${id}`} />
 
         <div className="adoption-card">
-
           <div className="adoption-header">
             <span>ADOPTION APPLICATION</span>
 
@@ -86,11 +82,8 @@ function AdoptionForm() {
             </p>
           </div>
 
-
           <form onSubmit={handleSubmit}>
-
             <div className="form-group">
-
               <label htmlFor="message">
                 Why would you like to adopt this pet?
               </label>
@@ -103,9 +96,7 @@ function AdoptionForm() {
                 onChange={(e) => setMessage(e.target.value)}
                 required
               />
-
             </div>
-
 
             {success && (
               <div className="success-message">
@@ -113,13 +104,11 @@ function AdoptionForm() {
               </div>
             )}
 
-
             {error && (
               <div className="error-message">
                 {error}
               </div>
             )}
-
 
             <button
               type="submit"
@@ -130,13 +119,9 @@ function AdoptionForm() {
                 ? "Submitting..."
                 : "Submit Adoption Application →"}
             </button>
-
           </form>
-
         </div>
-
       </main>
-
     </div>
   );
 }
